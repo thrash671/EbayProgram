@@ -21,20 +21,16 @@ namespace EbayCards
         private string cs = "server=mysql.thwackgolf.com; Database=ebay_cards; uid=jtt192; pwd=Thwack671!";
 
         //Setting the deleteClicked value to False to begin program
-        bool deleteClicked = false;
-
-        
+        bool deleteClicked = false;       
 
         public EbayCards()
         {
             InitializeComponent();
-
         }
 
         //Save button the user will press after entering card infrmation
         private void btnSave_Click(object sender, EventArgs e)
         {
-
             MySqlConnection con = new MySqlConnection(cs);
 
             string saveQuery = "INSERT INTO cards(card_name, collection_num, listed_value, sold_value, style_listed, shipping) VALUES (?card_name, ?collection_num, ?listed_value, ?sold_value, ?style_listed, ?shipping)";
@@ -57,7 +53,6 @@ namespace EbayCards
         //If a user needs to make changs to a entry they will click this button after they made changes
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-
             string updateQuery = "UPDATE cards SET card_name = ?card_name, collection_num = ?collection_num, listed_value = ?listed_value, sold_value = ?sold_value, style_listed = ?style_listed, shipping = ?shipping WHERE card_num = ?card_num";
             MySqlConnection con = new MySqlConnection(cs);
             con.Open();
@@ -71,12 +66,10 @@ namespace EbayCards
             cmd.Parameters.AddWithValue("?style_listed", txtListStyle.Text);
             cmd.Parameters.AddWithValue("?shipping", Convert.ToDecimal(txtShipping.Text));
 
-
             cmd.ExecuteNonQuery();
             con.Close();
 
             ClearTextBoxes();
-
         }
 
         //This button deltes entry.  A Message Box will appear in order to confirm
@@ -107,7 +100,6 @@ namespace EbayCards
                     con.Close();
                 }
             }
-
             ClearTextBoxes();
         }
 
@@ -152,7 +144,6 @@ namespace EbayCards
             MyAdapter.SelectCommand = MyCommand2;
 
             txtTotalSold.Text = MyCommand2.ExecuteScalar().ToString();
-
         }
 
         //The user will select from several search choices to search the database for particular items, or items that have been sold
@@ -166,33 +157,11 @@ namespace EbayCards
 
             if (cmbBox.Text == "Collection Number")
             {
-                MySqlConnection con = new MySqlConnection(cs);
-                MySqlCommand MyCommand2 = new MySqlCommand(collectionNumQuery, con);
-                con.Open();
-                MyCommand2.Parameters.AddWithValue("?collection_num", txtComboBoxValue.Text);
-
-                MySqlDataAdapter MyAdapter = new MySqlDataAdapter();
-                MyAdapter.SelectCommand = MyCommand2;
-
-                DataTable dTable = new DataTable();
-                MyAdapter.Fill(dTable);
-                dataGridView1.DataSource = dTable;
-                con.Close();
+                ComboBox("?collection_num", collectionNumQuery);
             }
             if (cmbBox.Text == "Item Name")
             {
-                MySqlConnection con = new MySqlConnection(cs);
-                MySqlCommand MyCommand2 = new MySqlCommand(cardNameQuery, con);
-                con.Open();
-                MyCommand2.Parameters.AddWithValue("?card_name", txtComboBoxValue.Text);
-
-                MySqlDataAdapter MyAdapter = new MySqlDataAdapter();
-                MyAdapter.SelectCommand = MyCommand2;
-
-                DataTable dTable = new DataTable();
-                MyAdapter.Fill(dTable);
-                dataGridView1.DataSource = dTable;
-                con.Close();
+                ComboBox("?card_name", cardNameQuery);
             }
             if (cmbBox.Text == "Sold Items")
             {
@@ -217,6 +186,23 @@ namespace EbayCards
             MyAdapter.Fill(dTable);
             dataGridView1.DataSource = dTable;
             con.Close();
+        }      
+
+        //Method called to display results from Combo Box for Item Name and Collection Number
+        private void ComboBox(string param, string query)
+        {
+            MySqlConnection con = new MySqlConnection(cs);
+            MySqlCommand MyCommand2 = new MySqlCommand(query, con);
+            con.Open();
+            MyCommand2.Parameters.AddWithValue(param, txtComboBoxValue.Text);
+
+            MySqlDataAdapter MyAdapter = new MySqlDataAdapter();
+            MyAdapter.SelectCommand = MyCommand2;
+
+            DataTable dTable = new DataTable();
+            MyAdapter.Fill(dTable);
+            dataGridView1.DataSource = dTable;
+            con.Close();
         }
 
         //Button to display the total number of active items
@@ -233,6 +219,7 @@ namespace EbayCards
             txtTotalActiveCards.Text = MyCommand2.ExecuteScalar().ToString();
         }
 
+        //Can enter an items Item Number to fill in the Text Boxes when updating information 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             MySqlConnection con = new MySqlConnection(cs);

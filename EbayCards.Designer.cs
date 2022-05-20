@@ -66,19 +66,22 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(329, 39);
+            this.dataGridView1.Location = new System.Drawing.Point(494, 60);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(819, 591);
+            this.dataGridView1.Size = new System.Drawing.Size(1228, 909);
             this.dataGridView1.TabIndex = 0;
             // 
             // lblCardName
             // 
             this.lblCardName.AutoSize = true;
             this.lblCardName.ForeColor = System.Drawing.Color.Yellow;
-            this.lblCardName.Location = new System.Drawing.Point(36, 42);
+            this.lblCardName.Location = new System.Drawing.Point(54, 65);
+            this.lblCardName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCardName.Name = "lblCardName";
-            this.lblCardName.Size = new System.Drawing.Size(64, 13);
+            this.lblCardName.Size = new System.Drawing.Size(95, 20);
             this.lblCardName.TabIndex = 1;
             this.lblCardName.Text = "Item Name: ";
             // 
@@ -86,9 +89,10 @@
             // 
             this.lblCollectionNum.AutoSize = true;
             this.lblCollectionNum.ForeColor = System.Drawing.Color.Yellow;
-            this.lblCollectionNum.Location = new System.Drawing.Point(36, 112);
+            this.lblCollectionNum.Location = new System.Drawing.Point(54, 172);
+            this.lblCollectionNum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCollectionNum.Name = "lblCollectionNum";
-            this.lblCollectionNum.Size = new System.Drawing.Size(96, 13);
+            this.lblCollectionNum.Size = new System.Drawing.Size(142, 20);
             this.lblCollectionNum.TabIndex = 2;
             this.lblCollectionNum.Text = "Collection Number:";
             // 
@@ -96,9 +100,10 @@
             // 
             this.lblListedValue.AutoSize = true;
             this.lblListedValue.ForeColor = System.Drawing.Color.Yellow;
-            this.lblListedValue.Location = new System.Drawing.Point(36, 182);
+            this.lblListedValue.Location = new System.Drawing.Point(54, 280);
+            this.lblListedValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblListedValue.Name = "lblListedValue";
-            this.lblListedValue.Size = new System.Drawing.Size(68, 13);
+            this.lblListedValue.Size = new System.Drawing.Size(101, 20);
             this.lblListedValue.TabIndex = 3;
             this.lblListedValue.Text = "Listed Value:";
             // 
@@ -106,9 +111,10 @@
             // 
             this.lblSoldValue.AutoSize = true;
             this.lblSoldValue.ForeColor = System.Drawing.Color.Yellow;
-            this.lblSoldValue.Location = new System.Drawing.Point(36, 252);
+            this.lblSoldValue.Location = new System.Drawing.Point(54, 388);
+            this.lblSoldValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSoldValue.Name = "lblSoldValue";
-            this.lblSoldValue.Size = new System.Drawing.Size(61, 13);
+            this.lblSoldValue.Size = new System.Drawing.Size(90, 20);
             this.lblSoldValue.TabIndex = 4;
             this.lblSoldValue.Text = "Sold Value:";
             // 
@@ -116,45 +122,51 @@
             // 
             this.lblStyle.AutoSize = true;
             this.lblStyle.ForeColor = System.Drawing.Color.Yellow;
-            this.lblStyle.Location = new System.Drawing.Point(36, 322);
+            this.lblStyle.Location = new System.Drawing.Point(54, 495);
+            this.lblStyle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStyle.Name = "lblStyle";
-            this.lblStyle.Size = new System.Drawing.Size(66, 13);
+            this.lblStyle.Size = new System.Drawing.Size(98, 20);
             this.lblStyle.TabIndex = 6;
             this.lblStyle.Text = "Listing Style:";
             // 
             // txtCardName
             // 
-            this.txtCardName.Location = new System.Drawing.Point(147, 39);
+            this.txtCardName.Location = new System.Drawing.Point(220, 60);
+            this.txtCardName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCardName.Name = "txtCardName";
-            this.txtCardName.Size = new System.Drawing.Size(154, 20);
+            this.txtCardName.Size = new System.Drawing.Size(229, 26);
             this.txtCardName.TabIndex = 8;
             // 
             // txtCollectionNum
             // 
-            this.txtCollectionNum.Location = new System.Drawing.Point(147, 108);
+            this.txtCollectionNum.Location = new System.Drawing.Point(220, 166);
+            this.txtCollectionNum.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCollectionNum.Name = "txtCollectionNum";
-            this.txtCollectionNum.Size = new System.Drawing.Size(154, 20);
+            this.txtCollectionNum.Size = new System.Drawing.Size(229, 26);
             this.txtCollectionNum.TabIndex = 9;
             // 
             // txtListValue
             // 
-            this.txtListValue.Location = new System.Drawing.Point(147, 178);
+            this.txtListValue.Location = new System.Drawing.Point(220, 274);
+            this.txtListValue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtListValue.Name = "txtListValue";
-            this.txtListValue.Size = new System.Drawing.Size(154, 20);
+            this.txtListValue.Size = new System.Drawing.Size(229, 26);
             this.txtListValue.TabIndex = 10;
             // 
             // txtListStyle
             // 
-            this.txtListStyle.Location = new System.Drawing.Point(147, 316);
+            this.txtListStyle.Location = new System.Drawing.Point(220, 486);
+            this.txtListStyle.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtListStyle.Name = "txtListStyle";
-            this.txtListStyle.Size = new System.Drawing.Size(154, 20);
+            this.txtListStyle.Size = new System.Drawing.Size(229, 26);
             this.txtListStyle.TabIndex = 12;
             // 
             // txtSoldValue
             // 
-            this.txtSoldValue.Location = new System.Drawing.Point(147, 247);
+            this.txtSoldValue.Location = new System.Drawing.Point(220, 380);
+            this.txtSoldValue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtSoldValue.Name = "txtSoldValue";
-            this.txtSoldValue.Size = new System.Drawing.Size(154, 20);
+            this.txtSoldValue.Size = new System.Drawing.Size(229, 26);
             this.txtSoldValue.TabIndex = 11;
             // 
             // btnSave
@@ -164,9 +176,10 @@
             this.btnSave.FlatAppearance.BorderSize = 2;
             this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GrayText;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Location = new System.Drawing.Point(36, 488);
+            this.btnSave.Location = new System.Drawing.Point(54, 751);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(109, 36);
+            this.btnSave.Size = new System.Drawing.Size(164, 55);
             this.btnSave.TabIndex = 15;
             this.btnSave.Text = "Save Items";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -179,9 +192,10 @@
             this.btnUpdate.FlatAppearance.BorderSize = 2;
             this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GrayText;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Location = new System.Drawing.Point(170, 543);
+            this.btnUpdate.Location = new System.Drawing.Point(255, 835);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(109, 36);
+            this.btnUpdate.Size = new System.Drawing.Size(164, 55);
             this.btnUpdate.TabIndex = 18;
             this.btnUpdate.Text = "Update Item";
             this.btnUpdate.UseVisualStyleBackColor = false;
@@ -194,9 +208,10 @@
             this.btnDelete.FlatAppearance.BorderSize = 2;
             this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GrayText;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Location = new System.Drawing.Point(36, 543);
+            this.btnDelete.Location = new System.Drawing.Point(54, 835);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(109, 36);
+            this.btnDelete.Size = new System.Drawing.Size(164, 55);
             this.btnDelete.TabIndex = 17;
             this.btnDelete.Text = "Delete Item";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -209,9 +224,10 @@
             this.btnShow.FlatAppearance.BorderSize = 2;
             this.btnShow.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GrayText;
             this.btnShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShow.Location = new System.Drawing.Point(170, 488);
+            this.btnShow.Location = new System.Drawing.Point(255, 751);
+            this.btnShow.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(109, 36);
+            this.btnShow.Size = new System.Drawing.Size(164, 55);
             this.btnShow.TabIndex = 16;
             this.btnShow.Text = "Display Items";
             this.btnShow.UseVisualStyleBackColor = false;
@@ -219,18 +235,20 @@
             // 
             // txtCardNum
             // 
-            this.txtCardNum.Location = new System.Drawing.Point(233, 445);
+            this.txtCardNum.Location = new System.Drawing.Point(350, 685);
+            this.txtCardNum.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCardNum.Name = "txtCardNum";
-            this.txtCardNum.Size = new System.Drawing.Size(46, 20);
+            this.txtCardNum.Size = new System.Drawing.Size(67, 26);
             this.txtCardNum.TabIndex = 19;
             // 
             // lblCardNum
             // 
             this.lblCardNum.AutoSize = true;
             this.lblCardNum.ForeColor = System.Drawing.Color.Yellow;
-            this.lblCardNum.Location = new System.Drawing.Point(36, 448);
+            this.lblCardNum.Location = new System.Drawing.Point(54, 689);
+            this.lblCardNum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCardNum.Name = "lblCardNum";
-            this.lblCardNum.Size = new System.Drawing.Size(200, 13);
+            this.lblCardNum.Size = new System.Drawing.Size(301, 20);
             this.lblCardNum.TabIndex = 20;
             this.lblCardNum.Text = "Enter Item Number for Delete or Update: ";
             // 
@@ -241,9 +259,10 @@
             this.btnClear.FlatAppearance.BorderSize = 2;
             this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GrayText;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Location = new System.Drawing.Point(92, 590);
+            this.btnClear.Location = new System.Drawing.Point(138, 908);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(109, 36);
+            this.btnClear.Size = new System.Drawing.Size(164, 55);
             this.btnClear.TabIndex = 19;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
@@ -252,13 +271,14 @@
             // btnDisplayTotal
             // 
             this.btnDisplayTotal.BackColor = System.Drawing.SystemColors.Control;
-            this.btnClear.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
-            this.btnClear.FlatAppearance.BorderSize = 2;
-            this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GrayText;
+            this.btnDisplayTotal.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
+            this.btnDisplayTotal.FlatAppearance.BorderSize = 2;
+            this.btnDisplayTotal.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GrayText;
             this.btnDisplayTotal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDisplayTotal.Location = new System.Drawing.Point(1209, 590);
+            this.btnDisplayTotal.Location = new System.Drawing.Point(1814, 908);
+            this.btnDisplayTotal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDisplayTotal.Name = "btnDisplayTotal";
-            this.btnDisplayTotal.Size = new System.Drawing.Size(109, 36);
+            this.btnDisplayTotal.Size = new System.Drawing.Size(164, 55);
             this.btnDisplayTotal.TabIndex = 23;
             this.btnDisplayTotal.Text = "Display Total";
             this.btnDisplayTotal.UseVisualStyleBackColor = false;
@@ -267,9 +287,10 @@
             // txtTotalSold
             // 
             this.txtTotalSold.Font = new System.Drawing.Font("Segoe UI", 18F);
-            this.txtTotalSold.Location = new System.Drawing.Point(1185, 540);
+            this.txtTotalSold.Location = new System.Drawing.Point(1778, 831);
+            this.txtTotalSold.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTotalSold.Name = "txtTotalSold";
-            this.txtTotalSold.Size = new System.Drawing.Size(154, 39);
+            this.txtTotalSold.Size = new System.Drawing.Size(229, 55);
             this.txtTotalSold.TabIndex = 22;
             this.txtTotalSold.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -278,19 +299,24 @@
             this.lblTotalSold.AutoSize = true;
             this.lblTotalSold.Font = new System.Drawing.Font("Segoe UI", 18F);
             this.lblTotalSold.ForeColor = System.Drawing.Color.Yellow;
-            this.lblTotalSold.Location = new System.Drawing.Point(1209, 510);
+            this.lblTotalSold.Location = new System.Drawing.Point(1814, 785);
+            this.lblTotalSold.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalSold.Name = "lblTotalSold";
-            this.lblTotalSold.Size = new System.Drawing.Size(120, 32);
+            this.lblTotalSold.Size = new System.Drawing.Size(175, 48);
             this.lblTotalSold.TabIndex = 24;
             this.lblTotalSold.Text = "Total Sold";
             // 
             // btnDisplayComboBox
             // 
             this.btnDisplayComboBox.BackColor = System.Drawing.SystemColors.Control;
+            this.btnDisplayComboBox.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
+            this.btnDisplayComboBox.FlatAppearance.BorderSize = 2;
+            this.btnDisplayComboBox.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GrayText;
             this.btnDisplayComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDisplayComboBox.Location = new System.Drawing.Point(1209, 149);
+            this.btnDisplayComboBox.Location = new System.Drawing.Point(1814, 229);
+            this.btnDisplayComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDisplayComboBox.Name = "btnDisplayComboBox";
-            this.btnDisplayComboBox.Size = new System.Drawing.Size(109, 36);
+            this.btnDisplayComboBox.Size = new System.Drawing.Size(164, 55);
             this.btnDisplayComboBox.TabIndex = 28;
             this.btnDisplayComboBox.Text = "Display Items";
             this.btnDisplayComboBox.UseVisualStyleBackColor = false;
@@ -304,16 +330,18 @@
             "Item Name",
             "Sold Items",
             "Unsold Items"});
-            this.cmbBox.Location = new System.Drawing.Point(1185, 40);
+            this.cmbBox.Location = new System.Drawing.Point(1778, 62);
+            this.cmbBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbBox.Name = "cmbBox";
-            this.cmbBox.Size = new System.Drawing.Size(154, 21);
+            this.cmbBox.Size = new System.Drawing.Size(229, 28);
             this.cmbBox.TabIndex = 26;
             // 
             // txtComboBoxValue
             // 
-            this.txtComboBoxValue.Location = new System.Drawing.Point(1209, 98);
+            this.txtComboBoxValue.Location = new System.Drawing.Point(1814, 151);
+            this.txtComboBoxValue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtComboBoxValue.Name = "txtComboBoxValue";
-            this.txtComboBoxValue.Size = new System.Drawing.Size(109, 20);
+            this.txtComboBoxValue.Size = new System.Drawing.Size(162, 26);
             this.txtComboBoxValue.TabIndex = 27;
             // 
             // lbActivelTotalCards
@@ -321,28 +349,35 @@
             this.lbActivelTotalCards.AutoSize = true;
             this.lbActivelTotalCards.Font = new System.Drawing.Font("Segoe UI", 18F);
             this.lbActivelTotalCards.ForeColor = System.Drawing.Color.Yellow;
-            this.lbActivelTotalCards.Location = new System.Drawing.Point(1175, 308);
+            this.lbActivelTotalCards.Location = new System.Drawing.Point(1762, 474);
+            this.lbActivelTotalCards.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbActivelTotalCards.Name = "lbActivelTotalCards";
-            this.lbActivelTotalCards.Size = new System.Drawing.Size(203, 32);
+            this.lbActivelTotalCards.Size = new System.Drawing.Size(299, 48);
             this.lbActivelTotalCards.TabIndex = 28;
             this.lbActivelTotalCards.Text = "Total Active Items";
             // 
             // txtTotalActiveCards
             // 
             this.txtTotalActiveCards.Font = new System.Drawing.Font("Segoe UI", 18F);
-            this.txtTotalActiveCards.Location = new System.Drawing.Point(1185, 351);
+            this.txtTotalActiveCards.Location = new System.Drawing.Point(1778, 540);
+            this.txtTotalActiveCards.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTotalActiveCards.Name = "txtTotalActiveCards";
-            this.txtTotalActiveCards.Size = new System.Drawing.Size(154, 39);
+            this.txtTotalActiveCards.Size = new System.Drawing.Size(229, 55);
             this.txtTotalActiveCards.TabIndex = 29;
             this.txtTotalActiveCards.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnTotalActiveCards
             // 
             this.btnTotalActiveCards.BackColor = System.Drawing.SystemColors.Control;
+            this.btnTotalActiveCards.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
+            this.btnTotalActiveCards.FlatAppearance.BorderSize = 2;
+            this.btnTotalActiveCards.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GrayText;
             this.btnTotalActiveCards.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTotalActiveCards.Location = new System.Drawing.Point(1209, 401);
+            this.btnTotalActiveCards.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnTotalActiveCards.Location = new System.Drawing.Point(1814, 617);
+            this.btnTotalActiveCards.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnTotalActiveCards.Name = "btnTotalActiveCards";
-            this.btnTotalActiveCards.Size = new System.Drawing.Size(109, 36);
+            this.btnTotalActiveCards.Size = new System.Drawing.Size(164, 55);
             this.btnTotalActiveCards.TabIndex = 30;
             this.btnTotalActiveCards.Text = "Display Total";
             this.btnTotalActiveCards.UseVisualStyleBackColor = false;
@@ -350,26 +385,29 @@
             // 
             // txtShipping
             // 
-            this.txtShipping.Location = new System.Drawing.Point(147, 386);
+            this.txtShipping.Location = new System.Drawing.Point(220, 594);
+            this.txtShipping.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtShipping.Name = "txtShipping";
-            this.txtShipping.Size = new System.Drawing.Size(154, 20);
+            this.txtShipping.Size = new System.Drawing.Size(229, 26);
             this.txtShipping.TabIndex = 13;
             // 
             // lblShipping
             // 
             this.lblShipping.AutoSize = true;
             this.lblShipping.ForeColor = System.Drawing.Color.Yellow;
-            this.lblShipping.Location = new System.Drawing.Point(36, 393);
+            this.lblShipping.Location = new System.Drawing.Point(54, 605);
+            this.lblShipping.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblShipping.Name = "lblShipping";
-            this.lblShipping.Size = new System.Drawing.Size(51, 13);
+            this.lblShipping.Size = new System.Drawing.Size(75, 20);
             this.lblShipping.TabIndex = 32;
             this.lblShipping.Text = "Shipping:";
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(284, 445);
+            this.btnSearch.Location = new System.Drawing.Point(426, 685);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(31, 21);
+            this.btnSearch.Size = new System.Drawing.Size(46, 32);
             this.btnSearch.TabIndex = 21;
             this.btnSearch.Text = "GO";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -377,10 +415,11 @@
             // 
             // EbayCards
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ClientSize = new System.Drawing.Size(1384, 661);
+            this.ClientSize = new System.Drawing.Size(1924, 991);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.lblShipping);
             this.Controls.Add(this.txtShipping);
@@ -411,7 +450,7 @@
             this.Controls.Add(this.lblCollectionNum);
             this.Controls.Add(this.lblCardName);
             this.Controls.Add(this.dataGridView1);
-            this.MaximumSize = new System.Drawing.Size(1400, 700);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "EbayCards";
             this.Text = "Ebay Cards";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
