@@ -220,9 +220,9 @@
             // 
             // txtCardNum
             // 
-            this.txtCardNum.Location = new System.Drawing.Point(233, 445);
+            this.txtCardNum.Location = new System.Drawing.Point(241, 445);
             this.txtCardNum.Name = "txtCardNum";
-            this.txtCardNum.Size = new System.Drawing.Size(46, 20);
+            this.txtCardNum.Size = new System.Drawing.Size(37, 20);
             this.txtCardNum.TabIndex = 19;
             // 
             // lblCardNum
