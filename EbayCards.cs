@@ -80,13 +80,13 @@ namespace EbayCards
             //Message Box that makes sure you want to delete
             string messageTitle = "Delete Row";
             string message = "Are you sure you want to Delete this row?";
-            MessageBoxButtons buttons = MessageBoxButtons.OK;
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result = MessageBox.Show(message, messageTitle, buttons);
 
             //Deletes the specified row after clicking on Message Box
             if (deleteClicked)
             {
-                if (result == DialogResult.OK)
+                if (result == DialogResult.Yes)
                 {
                     string deleteQuery = "DELETE FROM cards WHERE card_num = ?card_num";
 
@@ -98,6 +98,10 @@ namespace EbayCards
 
                     cmd.ExecuteNonQuery();
                     con.Close();
+                }
+                if (result == DialogResult.No)
+                {
+                    //Close message box without deleting any entries
                 }
             }
             ClearTextBoxes();
