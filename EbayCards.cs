@@ -9,7 +9,7 @@
 
 using System;
 using System.Data;
-using System.Drawing;
+using System.Configuration;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -18,8 +18,8 @@ namespace EbayCards
     public partial class EbayCards : Form
     {
         //Connection String
-        private string cs = "server=mysql.thwackgolf.com; Database=ebay_cards; uid=jtt192; pwd=Thwack671!";
-
+        private string cs = ConfigurationManager.ConnectionStrings["CS"].ConnectionString;
+        
         //Setting the deleteClicked value to False to begin program
         bool deleteClicked = false;       
 
@@ -36,6 +36,8 @@ namespace EbayCards
             string saveQuery = "INSERT INTO cards(card_name, collection_num, listed_value, sold_value, style_listed, shipping) VALUES (?card_name, ?collection_num, ?listed_value, ?sold_value, ?style_listed, ?shipping)";
             con.Open();
             MySqlCommand cmd = new MySqlCommand(saveQuery, con);
+
+
 
             cmd.Parameters.AddWithValue("?card_name", txtCardName.Text);
             cmd.Parameters.AddWithValue("?collection_num", txtCollectionNum.Text);
@@ -54,19 +56,11 @@ namespace EbayCards
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             string updateQuery = "UPDATE cards SET card_name = ?card_name, collection_num = ?collection_num, listed_value = ?listed_value, sold_value = ?sold_value, style_listed = ?style_listed, shipping = ?shipping WHERE card_num = ?card_num";
-            //string updateQuery = ;
+            //string updateQuery = "update_cards";
 
             MySqlConnection con = new MySqlConnection(cs);
             con.Open();
             MySqlCommand cmd = new MySqlCommand(updateQuery, con);
-
-            //cmd.Parameters.AddWithValue("?card_num", MySqlDbType.Int16).Value = txtCardNum.Text;
-            //cmd.Parameters.AddWithValue("?card_name", txtCardName.Text);
-            //cmd.Parameters.AddWithValue("?collection_num", txtCollectionNum.Text);
-            //cmd.Parameters.AddWithValue("?listed_value", Convert.ToDecimal(txtListValue.Text));
-            //cmd.Parameters.AddWithValue("?sold_value", string.IsNullOrEmpty(txtSoldValue.Text) ? (object)DBNull.Value : Convert.ToDecimal(txtSoldValue.Text));
-            //cmd.Parameters.AddWithValue("?style_listed", txtListStyle.Text);
-            //cmd.Parameters.AddWithValue("?shipping", Convert.ToDecimal(txtShipping.Text));
 
             cmd.Parameters.AddWithValue("?card_num", MySqlDbType.Int16).Value = txtCardNum.Text;
             cmd.Parameters.AddWithValue("?card_name", txtCardName.Text);
@@ -75,6 +69,16 @@ namespace EbayCards
             cmd.Parameters.AddWithValue("?sold_value", string.IsNullOrEmpty(txtSoldValue.Text) ? (object)DBNull.Value : Convert.ToDecimal(txtSoldValue.Text));
             cmd.Parameters.AddWithValue("?style_listed", txtListStyle.Text);
             cmd.Parameters.AddWithValue("?shipping", Convert.ToDecimal(txtShipping.Text));
+
+            //cmd.CommandType = CommandType.StoredProcedure;
+
+            //cmd.Parameters.AddWithValue("@card_num", MySqlDbType.Int16).Value = txtCardNum.Text;
+            //cmd.Parameters.AddWithValue("@card_name", txtCardName.Text);
+           // cmd.Parameters.AddWithValue("@collection_num", txtCollectionNum.Text);
+            //cmd.Parameters.AddWithValue("@listed_value", Convert.ToDecimal(txtListValue.Text));
+            //cmd.Parameters.AddWithValue("@sold_value", string.IsNullOrEmpty(txtSoldValue.Text) ? (object)DBNull.Value : Convert.ToDecimal(txtSoldValue.Text));
+            //cmd.Parameters.AddWithValue("@style_listed", txtListStyle.Text);
+            //cmd.Parameters.AddWithValue("@shipping", Convert.ToDecimal(txtShipping.Text));
 
             cmd.ExecuteNonQuery();
             con.Close();
@@ -98,19 +102,18 @@ namespace EbayCards
             {
                 if (result == DialogResult.Yes)
                 {
-                    //string deleteQuery = "DELETE FROM cards WHERE card_num = ?card_num";
                     string deleteQuery = "delete_query";
 
                     MySqlConnection con = new MySqlConnection(cs);
                     con.Open();
                     MySqlCommand cmd = new MySqlCommand(deleteQuery, con);
-
-                    cmd.Parameters.AddWithValue("@con", MySqlDbType.Int16).Value = txtCardNum.Text;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@card_num", MySqlDbType.Int16).Value = txtCardNum.Text;
 
                     cmd.ExecuteNonQuery();
                     con.Close();
                 }
-                if (result == DialogResult.No)
+                else if (result == DialogResult.No)
                 {
                     //Close message box without deleting any entries
                 }
@@ -178,15 +181,15 @@ namespace EbayCards
             {
                 ComboBox("?num", collectionNumQuery);
             }
-            if (cmbBox.Text == "Item Name")
+            else if (cmbBox.Text == "Item Name")
             {
                 ComboBox("?card_name", cardNameQuery);
             }
-            if (cmbBox.Text == "Sold Items")
+            else if (cmbBox.Text == "Sold Items")
             {
                 DisplayTable(soldCardsQuery);
             }
-            if (cmbBox.Text == "Unsold Items")
+            else if (cmbBox.Text == "Unsold Items")
             {
                 DisplayTable(unsoldCardsQuery);
             }
@@ -211,8 +214,12 @@ namespace EbayCards
         private void ComboBox(string param, string query)
         {
             MySqlConnection con = new MySqlConnection(cs);
-            MySqlCommand MyCommand2 = new MySqlCommand(query, con);
             con.Open();
+            MySqlCommand MyCommand2 = new MySqlCommand(query, con);
+
+            MyCommand2.CommandType = CommandType.StoredProcedure;
+            MyCommand2.Parameters.AddWithValue(param, MySqlDbType.Int16).Value = txtCardNum.Text;
+
             MyCommand2.Parameters.AddWithValue(param, txtComboBoxValue.Text);
 
             MySqlDataAdapter MyAdapter = new MySqlDataAdapter();
