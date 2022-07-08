@@ -37,8 +37,6 @@ namespace EbayCards
             con.Open();
             MySqlCommand cmd = new MySqlCommand(saveQuery, con);
 
-
-
             cmd.Parameters.AddWithValue("?card_name", txtCardName.Text);
             cmd.Parameters.AddWithValue("?collection_num", txtCollectionNum.Text);
             cmd.Parameters.AddWithValue("?listed_value", Convert.ToDecimal(txtListValue.Text));
@@ -56,7 +54,6 @@ namespace EbayCards
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             string updateQuery = "UPDATE cards SET card_name = ?card_name, collection_num = ?collection_num, listed_value = ?listed_value, sold_value = ?sold_value, style_listed = ?style_listed, shipping = ?shipping WHERE card_num = ?card_num";
-            //string updateQuery = "update_cards";
 
             MySqlConnection con = new MySqlConnection(cs);
             con.Open();
@@ -69,16 +66,6 @@ namespace EbayCards
             cmd.Parameters.AddWithValue("?sold_value", string.IsNullOrEmpty(txtSoldValue.Text) ? (object)DBNull.Value : Convert.ToDecimal(txtSoldValue.Text));
             cmd.Parameters.AddWithValue("?style_listed", txtListStyle.Text);
             cmd.Parameters.AddWithValue("?shipping", Convert.ToDecimal(txtShipping.Text));
-
-            //cmd.CommandType = CommandType.StoredProcedure;
-
-            //cmd.Parameters.AddWithValue("@card_num", MySqlDbType.Int16).Value = txtCardNum.Text;
-            //cmd.Parameters.AddWithValue("@card_name", txtCardName.Text);
-           // cmd.Parameters.AddWithValue("@collection_num", txtCollectionNum.Text);
-            //cmd.Parameters.AddWithValue("@listed_value", Convert.ToDecimal(txtListValue.Text));
-            //cmd.Parameters.AddWithValue("@sold_value", string.IsNullOrEmpty(txtSoldValue.Text) ? (object)DBNull.Value : Convert.ToDecimal(txtSoldValue.Text));
-            //cmd.Parameters.AddWithValue("@style_listed", txtListStyle.Text);
-            //cmd.Parameters.AddWithValue("@shipping", Convert.ToDecimal(txtShipping.Text));
 
             cmd.ExecuteNonQuery();
             con.Close();
@@ -123,8 +110,7 @@ namespace EbayCards
 
         //This button will display the values of the databse in a DataGridView
         private void btnShow_Click(object sender, EventArgs e)
-        {
-            //string displayQuery = "SELECT card_num AS 'Item Number', card_name AS 'Item Name', collection_num AS 'Collection Num', CONCAT('$', listed_value) AS 'Listed Value', CONCAT('$', sold_value) AS 'Sold Value', style_listed AS 'Style Listed', CONCAT('$', shipping) AS 'Shipping Cost' FROM cards";
+        {           
             string displayQuery = "display_query";
             DisplayTable(displayQuery);
         }
@@ -170,16 +156,14 @@ namespace EbayCards
         // or that are still avaliable.  The user will then click display button to search database 
         private void btnDisplayComboBox_Click(object sender, EventArgs e)
         {
-            //string collectionNumQuery = "SELECT card_num AS 'Item Number', card_name AS 'Item Name', collection_num AS 'Collection Num', CONCAT('$', listed_value) AS 'Listed Value', CONCAT('$', sold_value) AS 'Sold Value', style_listed AS 'Style Listed', CONCAT('$', shipping) AS 'Shipping Cost' FROM cards WHERE collection_num = ?collection_num";
-            string collectionNumQuery = "collection_num";
-            string cardNameQuery = "SELECT card_num AS 'Item Number', card_name AS 'Item Name', collection_num AS 'Collection Num', CONCAT('$', listed_value) AS 'Listed Value', CONCAT('$', sold_value) AS 'Sold Value', style_listed AS 'Style Listed', CONCAT('$', shipping) AS 'Shipping Cost' FROM cards WHERE card_name LIKE CONCAT('%', ?card_name, '%')";
-            //string cardNameQuery = "card_name";         
+            string collectionNumQuery = "SELECT card_num AS 'Item Number', card_name AS 'Item Name', collection_num AS 'Collection Num', CONCAT('$', listed_value) AS 'Listed Value', CONCAT('$', sold_value) AS 'Sold Value', style_listed AS 'Style Listed', CONCAT('$', shipping) AS 'Shipping Cost' FROM cards WHERE collection_num = ?collection_num";
+            string cardNameQuery = "SELECT card_num AS 'Item Number', card_name AS 'Item Name', collection_num AS 'Collection Num', CONCAT('$', listed_value) AS 'Listed Value', CONCAT('$', sold_value) AS 'Sold Value', style_listed AS 'Style Listed', CONCAT('$', shipping) AS 'Shipping Cost' FROM cards WHERE card_name LIKE CONCAT('%', ?card_name, '%')";       
             string soldCardsQuery = "sold_cards";
             string unsoldCardsQuery = "unsold_cards";
 
             if (cmbBox.Text == "Collection Number")
             {
-                ComboBox("?num", collectionNumQuery);
+                ComboBox("?collection_num", collectionNumQuery);
             }
             else if (cmbBox.Text == "Item Name")
             {
@@ -217,9 +201,7 @@ namespace EbayCards
             con.Open();
             MySqlCommand MyCommand2 = new MySqlCommand(query, con);
 
-            MyCommand2.CommandType = CommandType.StoredProcedure;
-            MyCommand2.Parameters.AddWithValue(param, MySqlDbType.Int16).Value = txtCardNum.Text;
-
+            //MyCommand2.Parameters.AddWithValue(param, MySqlDbType.Int16).Value = txtCardNum.Text;
             MyCommand2.Parameters.AddWithValue(param, txtComboBoxValue.Text);
 
             MySqlDataAdapter MyAdapter = new MySqlDataAdapter();
