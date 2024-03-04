@@ -3,7 +3,7 @@
 //Developer: Josh Thrash
 //Purpose:  This Window Form Application allows the user to input items that are actively being sold on Ebay.
 //          The user can keep track of starting price and type of selling method in order to see which type sells best
-//          Once the card is sold the user is able to update the MySql database in order to show the final price of items sold.
+//          Once the card is sold the user is able to update the Sql database in order to show the final price of items sold.
 //          The user can also Update and Delete entires whenever needed.  The user is also able to search the active database
 //          With particular parameters, view total value of sold items, and view total number of active items
 
@@ -11,7 +11,6 @@ using System;
 using System.Data;
 using System.Configuration;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 using Microsoft.Data.SqlClient;
 
 namespace EbayCards
@@ -35,16 +34,16 @@ namespace EbayCards
         {
             SqlConnection con = new SqlConnection(cs);
 
-            string saveQuery = "INSERT INTO cards(card_name, collection_num, listed_value, sold_value, style_listed, shipping) VALUES (?card_name, ?collection_num, ?listed_value, ?sold_value, ?style_listed, ?shipping)";
+            string saveQuery = "INSERT INTO cards(card_name, collection_num, listed_value, sold_value, style_listed, shipping) VALUES (@card_name, @collection_num, @listed_value, @sold_value, @style_listed, @shipping)";
             con.Open();
             SqlCommand cmd = new SqlCommand(saveQuery, con);
 
-            cmd.Parameters.AddWithValue("?card_name", txtCardName.Text);
-            cmd.Parameters.AddWithValue("?collection_num", txtCollectionNum.Text);
-            cmd.Parameters.AddWithValue("?listed_value", Convert.ToDecimal(txtListValue.Text));
-            cmd.Parameters.AddWithValue("?sold_value", string.IsNullOrEmpty(txtSoldValue.Text) ? (object)DBNull.Value : Convert.ToDecimal(txtSoldValue.Text));
-            cmd.Parameters.AddWithValue("?style_listed", txtListStyle.Text);
-            cmd.Parameters.AddWithValue("?shipping", Convert.ToDecimal(txtShipping.Text));
+            cmd.Parameters.AddWithValue("@card_name", txtCardName.Text);
+            cmd.Parameters.AddWithValue("@collection_num", txtCollectionNum.Text);
+            cmd.Parameters.AddWithValue("@listed_value", Convert.ToDecimal(txtListValue.Text));
+            cmd.Parameters.AddWithValue("@sold_value", string.IsNullOrEmpty(txtSoldValue.Text) ? (object)DBNull.Value : Convert.ToDecimal(txtSoldValue.Text));
+            cmd.Parameters.AddWithValue("@style_listed", txtListStyle.Text);
+            cmd.Parameters.AddWithValue("@shipping", Convert.ToDecimal(txtShipping.Text));
 
             cmd.ExecuteNonQuery();
             con.Close();
@@ -97,19 +96,21 @@ namespace EbayCards
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result = MessageBox.Show(message, messageTitle, buttons);
 
+            string deleteQuery = "DELETE FROM cards WHERE card_num = @card_num";
+
             //Deletes the specified row after clicking on Message Box
             if (deleteClicked)
             {
                 if (result == DialogResult.Yes)
                 {
-                    string deleteQuery = "delete_query";
+                    //string deleteQuery = "delete_query";
 
-                    MySqlConnection con = new MySqlConnection(cs);
+                    SqlConnection con = new SqlConnection(cs);
                     con.Open();
-                    MySqlCommand cmd = new MySqlCommand(deleteQuery, con);
+                    SqlCommand cmd = new SqlCommand(deleteQuery, con);
                     //cmd.CommandType = CommandType.StoredProcedure;
-                    //int convert = short.ConvertToInt16(txtCardNum.Text);
-                    //cmd.Parameters.AddWithValue("@card_num", convert);
+                    int convert = Convert.ToInt16(txtCardNum.Text);
+                    cmd.Parameters.AddWithValue("@card_num", convert);
 
                     cmd.ExecuteNonQuery();
                     con.Close();
@@ -223,7 +224,7 @@ namespace EbayCards
                 con.Open();
 
                 SqlDataAdapter MyAdapter = new SqlDataAdapter();
-                command.Parameters.AddWithValue("@collection_num", txtCollectionNum.Text);
+                command.Parameters.AddWithValue("@collection_num", txtComboBoxValue.Text);
                 MyAdapter.SelectCommand = command;
                 DataTable dTable = new DataTable();
                 MyAdapter.Fill(dTable);
@@ -247,7 +248,7 @@ namespace EbayCards
                 con.Open();
 
                 SqlDataAdapter MyAdapter = new SqlDataAdapter();
-                command.Parameters.AddWithValue("@card_name", txtCardName.Text);
+                command.Parameters.AddWithValue("@card_name", txtComboBoxValue.Text);
                 MyAdapter.SelectCommand = command;
                 DataTable dTable = new DataTable();
                 MyAdapter.Fill(dTable);
